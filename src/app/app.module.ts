@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,8 +12,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
-    declarations: [AppComponent, HeaderComponent, FooterComponent, HomeComponent, MoviesComponent, SliderComponent],
-    imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        FooterComponent,
+        HomeComponent,
+        MoviesComponent,
+        SliderComponent
+    ],
+    imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule],
     providers: [],
     bootstrap: [AppComponent]
 })

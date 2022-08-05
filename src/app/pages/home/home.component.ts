@@ -7,12 +7,13 @@ import { MoviesService } from '../../services/movies.service';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    movies: any;
+    movies: any = [];
 
     constructor(private moviesService: MoviesService) {}
 
     ngOnInit(): void {
-        this.moviesService.getMovies().subscribe((movies) => (this.movies = movies));
-        console.log(this.movies);
+        this.moviesService.getMovies().subscribe((response: any) => {
+            this.movies = response.results;
+        });
     }
 }
