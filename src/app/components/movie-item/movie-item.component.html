@@ -1,0 +1,13 @@
+<ng-container *ngIf="movieData">
+    <a class="item">
+        <div class="item-rating">
+            <i class="app-icon">star</i>
+            <span>{{ movieData.vote_average }}</span
+            >/10
+        </div>
+        <div class="item-image">
+            <img [src]="'https://image.tmdb.org/t/p/w342/' + movieData.poster_path" />
+        </div>
+        <div class="item-title">{{ movieData.title }}</div>
+    </a>
+</ng-container>

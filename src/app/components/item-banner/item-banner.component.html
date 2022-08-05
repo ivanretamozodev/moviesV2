@@ -1,0 +1,8 @@
+<div class="container">
+    <h2>{{ category }}</h2>
+    <div class="grid">
+        <div class="col-12 md:col-4 xl:col-2" *ngFor="let item of items">
+            <movie-item [movieData]="item"></movie-item>
+        </div>
+    </div>
+</div>
