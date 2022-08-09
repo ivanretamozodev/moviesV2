@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { TabViewModule } from 'primeng/tabview';
+import { CarouselModule } from 'primeng/carousel';
 import { ImageModule } from 'primeng/image';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
-    exports: [TabViewModule, ImageModule]
+    exports: [CarouselModule, TabViewModule, ImageModule]
 })
 export class PrimeNGModule {}
