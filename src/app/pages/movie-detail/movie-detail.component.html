@@ -1,0 +1,56 @@
+<ng-container *ngIf="movieDetail">
+    <app-slider [items]="[movieDetail]" [banner]="true"></app-slider>
+    <p-tabView>
+        <p-tabPanel header="Resumen">
+            <div class="grid">
+                <div class="col-12 md:col-3 lg:col-3">
+                    <img
+                        class="poster"
+                        [src]="'https://image.tmdb.org/t/p/w342/' + movieDetail.poster_path"
+                        alt="movie-detail.title"
+                    />
+                </div>
+                <div class="col-12 md:col-9 lg:col-9">
+                    <h2 class="overview-text">Resúmen</h2>
+                    <p class="overview-text">{{ movieDetail.overview }}</p>
+                    <div class="stat">
+                        <div class="label">fecha de estreno:</div>
+                        <div class="value">{{ movieDetail.release_date | date: 'dd/MM/yyyy' }}</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">lenguaje original:</div>
+                        <div class="value">{{ movieDetail.original_language | uppercase }}</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Ingresos:</div>
+                        <div class="value">{{ movieDetail.revenue | currency }} millones</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Duración:</div>
+                        <div class="value">{{ movieDetail.runtime }} minutos</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Estado:</div>
+                        <div class="value">{{ movieDetail.status }}</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Generos:</div>
+                        <span class="span" *ngFor="let genre of movieDetail.genres">
+                            {{ genre.name }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Videos">
+            <div class="grid">
+                <ng-container *ngFor="let video of movieVideo">
+                    <div class="col-12 md:col-4 lg:col-3">
+                        <app-video-tab [site]="video.site" [key]="video.key"></app-video-tab>
+                    </div>
+                </ng-container>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Fotos"> Content 3 </p-tabPanel>
+    </p-tabView>
+</ng-container>

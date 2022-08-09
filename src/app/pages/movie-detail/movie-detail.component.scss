@@ -1,0 +1,25 @@
+@import '../../../styles/colors';
+.poster {
+    max-width: 100%;
+}
+
+.overview-text {
+    text-align: center;
+    line-height: 1.5;
+}
+
+.stat {
+    display: flex;
+    margin-bottom: 1rem;
+
+    .label {
+        width: 150px;
+        font-weight: bold;
+    }
+    .value {
+        color: $principal-color;
+    }
+    .span {
+        margin-right: 0.8rem;
+    }
+}

@@ -15,12 +15,15 @@ import { Movie } from '../../interfaces/Movie';
 })
 export class SliderComponent implements OnInit {
     @Input() items: Movie[] = [];
+    @Input() banner: boolean = false;
 
     currentIndex: number = 0;
 
     ngOnInit(): void {
-        setInterval(() => {
-            this.currentIndex = ++this.currentIndex % this.items.length;
-        }, 3500);
+        if (!this.banner) {
+            setInterval(() => {
+                this.currentIndex = ++this.currentIndex % this.items.length;
+            }, 3500);
+        }
     }
 }

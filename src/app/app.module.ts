@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { SliderComponent } from './components/slider/slider.component';
 import { ItemBannerComponent } from './components/item-banner/item-banner.component';
 import { MovieItemComponent } from './components/movie-item/movie-item.component';
+import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
+import { PrimeNGModule } from './primeNg/prime-ng.module';
+import { VideoTabComponent } from './components/video-tab/video-tab.component';
 
 @NgModule({
     declarations: [
@@ -22,9 +25,17 @@ import { MovieItemComponent } from './components/movie-item/movie-item.component
         MoviesComponent,
         SliderComponent,
         ItemBannerComponent,
-        MovieItemComponent
+        MovieItemComponent,
+        MovieDetailComponent,
+        VideoTabComponent
     ],
-    imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, AppRoutingModule],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        PrimeNGModule
+    ],
     providers: [],
     bootstrap: [AppComponent]
 })
