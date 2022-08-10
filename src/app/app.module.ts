@@ -15,6 +15,7 @@ import { MovieItemComponent } from './components/movie-item/movie-item.component
 import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 import { PrimeNGModule } from './primeNg/prime-ng.module';
 import { VideoTabComponent } from './components/video-tab/video-tab.component';
+import { GenresComponent } from './pages/genres/genres.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { VideoTabComponent } from './components/video-tab/video-tab.component';
         ItemBannerComponent,
         MovieItemComponent,
         MovieDetailComponent,
-        VideoTabComponent
+        VideoTabComponent,
+        GenresComponent
     ],
     imports: [
         BrowserModule,

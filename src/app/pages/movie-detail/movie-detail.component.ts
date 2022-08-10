@@ -2,24 +2,20 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../../services/movies.service';
 import { Movie, MovieVideo, MovieImages, MovieCredits } from '../../interfaces/Movie';
-import { first, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-movie-detail',
     templateUrl: './movie-detail.component.html',
     styleUrls: ['./movie-detail.component.scss']
 })
-export class MovieDetailComponent implements OnInit, OnDestroy {
+export class MovieDetailComponent implements OnInit {
     movieDetail: Movie | null = null;
     movieVideo: MovieVideo[] = [];
     movieImages: MovieImages | null = null;
     movieCredits: MovieCredits | null = null;
 
     constructor(private activatedroute: ActivatedRoute, private movieService: MoviesService) {}
-
-    ngOnDestroy(): void {
-        throw new Error('Method not implemented.');
-    }
 
     ngOnInit(): void {
         this.activatedroute.params

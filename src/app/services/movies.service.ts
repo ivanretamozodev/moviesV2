@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { MovieDto, Movie, MovieVideos, MovieImages, MovieCredits } from '../interfaces/Movie';
 import { of, switchMap } from 'rxjs';
+import { Genres } from '../interfaces/genres.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -20,6 +21,7 @@ export class MoviesService {
             )
             .pipe(switchMap((resp) => of(resp.results.slice(0, count))));
     }
+
     getMoviesDetails(id: string) {
         return this.http.get<Movie>(
             `${this.baseUrl}/movie/${id}?api_key=${this.apiKey}&language=es-MX`
@@ -46,5 +48,11 @@ export class MoviesService {
         return this.http.get<MovieCredits>(
             `${this.baseUrl}/movie/${id}/credits?api_key=${this.apiKey}`
         );
+    }
+
+    getMoviesGenres() {
+        return this.http
+            .get<Genres>(`${this.baseUrl}/genre/movie/list?api_key=${this.apiKey}&language=es-MX`)
+            .pipe(switchMap((resp) => of(resp.genres)));
     }
 }

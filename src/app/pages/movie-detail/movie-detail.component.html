@@ -67,7 +67,12 @@
         </p-tabPanel>
     </p-tabView>
 
-    <p-carousel *ngIf="movieCredits" [value]="movieCredits.cast" [numVisible]="6">
+    <p-carousel
+        *ngIf="movieCredits"
+        [value]="movieCredits.cast"
+        [numVisible]="6"
+        [autoplayInterval]="3000"
+    >
         <ng-template let-actor pTemplate="item">
             <div class="actor">
                 <img [src]="'https://image.tmdb.org/t/p/w500/' + actor.profile_path" alt="" />
