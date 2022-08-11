@@ -55,4 +55,28 @@ export class MoviesService {
             .get<Genres>(`${this.baseUrl}/genre/movie/list?api_key=${this.apiKey}&language=es-MX`)
             .pipe(switchMap((resp) => of(resp.genres)));
     }
+
+    getMoviesByGenre(genreId: string, pageNumber: number) {
+        return this.http
+            .get<MovieDto>(
+                `${this.baseUrl}/discover/movie?with_genres=${genreId}&page=${pageNumber}&api_key=${this.apiKey}&language=es-MX`
+            )
+            .pipe(
+                switchMap((res) => {
+                    return of(res.results);
+                })
+            );
+    }
+
+    searchMovies(page: number) {
+        return this.http
+            .get<MovieDto>(
+                `${this.baseUrl}/movie/popular?page=${page}&api_key=${this.apiKey}&language=es-MX`
+            )
+            .pipe(
+                switchMap((res) => {
+                    return of(res.results);
+                })
+            );
+    }
 }
