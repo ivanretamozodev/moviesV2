@@ -14,7 +14,7 @@ export class MoviesService {
 
     constructor(private http: HttpClient) {}
 
-    getMovies(endpoint: string = 'upcoming', count: number = 12) {
+    getMovies(endpoint: string = 'upcoming', count: number = 10) {
         return this.http
             .get<MovieDto>(
                 `${this.baseUrl}/movie/${endpoint}?api_key=${this.apiKey}&language=es-MX`
@@ -68,10 +68,12 @@ export class MoviesService {
             );
     }
 
-    searchMovies(page: number) {
+    searchMovies(page: number, searchValue?: string) {
+        const uri = searchValue ? '/search/movie' : '/movie/popular';
+
         return this.http
             .get<MovieDto>(
-                `${this.baseUrl}/movie/popular?page=${page}&api_key=${this.apiKey}&language=es-MX`
+                `${this.baseUrl}${uri}?page=${page}&query=${searchValue}&api_key=${this.apiKey}&language=es-MX`
             )
             .pipe(
                 switchMap((res) => {
