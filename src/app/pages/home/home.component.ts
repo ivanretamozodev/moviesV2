@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../interfaces/Movie';
 import { MoviesService } from '../../services/movies.service';
+import { TvShowService } from '../../services/tv-show.service';
+import { Tv } from '../../interfaces/tv.interface';
 
 @Component({
     selector: 'app-home',
@@ -12,7 +14,7 @@ export class HomeComponent implements OnInit {
     upcomingMovies: Movie[] = [];
     topRatedMovies: Movie[] = [];
 
-    constructor(private moviesService: MoviesService) {}
+    constructor(private moviesService: MoviesService, private tvshow: TvShowService) {}
 
     ngOnInit(): void {
         this.moviesService.getMovies('popular').subscribe((movies) => {

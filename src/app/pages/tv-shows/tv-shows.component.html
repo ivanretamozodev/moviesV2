@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="grid">
+        <div class="col-12">
+            <div class="p-fluid">
+                <span class="p-input-icon-right">
+                    <i class="pi pi-search"></i>
+                    <input type="text" pInputText placeholder="Search TvShow" />
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="col-6 md:col-3 lg:col-3" *ngFor="let show of shows">
+            <movie-item [movieData]="show"></movie-item>
+        </div>
+    </div>
+    <div>
+        <p-paginator [rows]="20" [totalRecords]="10000"></p-paginator>
+    </div>
+</div>
+
+<pre>{{ shows | json }}</pre>

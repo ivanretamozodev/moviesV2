@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../../interfaces/Movie';
+import { Tv } from '../../interfaces/tv.interface';
 
 @Component({
     selector: 'item-banner',

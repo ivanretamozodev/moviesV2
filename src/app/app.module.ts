@@ -16,6 +16,7 @@ import { MovieDetailComponent } from './pages/movie-detail/movie-detail.componen
 import { PrimeNGModule } from './primeNg/prime-ng.module';
 import { VideoTabComponent } from './components/video-tab/video-tab.component';
 import { GenresComponent } from './pages/genres/genres.component';
+import { TvShowsComponent } from './pages/tv-shows/tv-shows.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { GenresComponent } from './pages/genres/genres.component';
         MovieItemComponent,
         MovieDetailComponent,
         VideoTabComponent,
-        GenresComponent
+        GenresComponent,
+        TvShowsComponent
     ],
     imports: [
         BrowserModule,
