@@ -16,4 +16,13 @@ export class TvShowsComponent implements OnInit {
         this.tvshow.getTvs().subscribe((tv) => (this.shows = tv));
         console.log(this.shows);
     }
+
+    getPagedTvs(pageNum: number) {
+        this.tvshow.searchTvs(pageNum).subscribe((tv) => (this.shows = tv));
+    }
+
+    paginate(event: any) {
+        const pageNumber = event.page + 1;
+        this.getPagedTvs(pageNumber);
+    }
 }

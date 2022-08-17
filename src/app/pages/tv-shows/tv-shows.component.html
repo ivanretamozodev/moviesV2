@@ -10,13 +10,15 @@
         </div>
     </div>
     <div class="grid">
-        <div class="col-6 md:col-3 lg:col-3" *ngFor="let show of shows">
+        <div class="col-12 sm:col-6 md:col-3 lg:col-3" *ngFor="let show of shows">
             <movie-item [movieData]="show"></movie-item>
         </div>
     </div>
     <div>
-        <p-paginator [rows]="20" [totalRecords]="10000"></p-paginator>
+        <p-paginator
+            [rows]="20"
+            [totalRecords]="10000"
+            (onPageChange)="paginate($event)"
+        ></p-paginator>
     </div>
 </div>
-
-<pre>{{ shows | json }}</pre>
